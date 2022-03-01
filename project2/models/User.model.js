@@ -5,32 +5,27 @@ const userSchema = new Schema(
     username: {
       type: String,
       unique: true,
-      required: true
+      required: true,
     },
-    {
-      password: {
-        type: String,
-        required: true
-    }
- 
+    password: {
+      type: String,
+      required: true,
+    },
+    roles: {
+      type: String,
+      enum: ["Parent", "admin"],
+    },
+    children: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Child",
+      },
+    ],
   },
   {
     timestamps: true,
-  },
-  {
-    roles: {
-      type: String,
-      enum: ['Parent', 'admin']
   }
-  },
-{
-  children: [{
-    type: Schema.Types.ObjectId,
-    ref: “Child”
-}]
-}
-
-  });
+);
 
 const User = model("User", userSchema);
 

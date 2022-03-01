@@ -12,7 +12,6 @@ const childSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Test"
     }],
-
 })
 
 module.exports = model("Child", childSchema)
