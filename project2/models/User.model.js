@@ -18,8 +18,18 @@ const userSchema = new Schema(
     timestamps: true,
   },
   {
-    roles: ['admin', 'parent']
+    roles: {
+      type: String,
+      enum: ['Parent', 'admin']
+  }
   },
+{
+  children: [{
+    type: Schema.Types.ObjectId,
+    ref: “Child”
+}]
+}
+
   });
 
 const User = model("User", userSchema);
