@@ -3,6 +3,14 @@ const User = require("../models/User.model");
 
 const seedDb = () => {
   User.deleteMany({})
+    .then (() => {
+      return Child.create({
+        parent: '',
+        group: '7',
+        name: 'Frieda',
+        test: '',
+      })
+    });
     .then(() => {
       return User.create({
         username: "testUsername",
