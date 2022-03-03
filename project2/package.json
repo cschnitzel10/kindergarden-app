@@ -14,7 +14,8 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "hbs": "^4.2.0",
-    "mongoose": "^6.2.3",
+    "mongodb": "^4.4.1",
+    "mongoose": "^6.2.4",
     "morgan": "^1.10.0",
     "serve-favicon": "^2.5.0"
   },
