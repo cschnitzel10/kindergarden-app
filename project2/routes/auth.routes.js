@@ -66,7 +66,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
-        res.redirect("/");
+        res.redirect("/parent");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -115,7 +115,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       // If user is found based on the username, check if the in putted password matches the one saved in the database
       if (password === user.password) {
         req.session.user = user;
-        return res.redirect("/");
+        return res.redirect("/parent");
       } else {
         return res.status(400).render("auth/login", {
           errorMessage: "Wrong credentials.",
@@ -136,7 +136,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
     if (err) {
       return res.status(500).render("auth/logout", { errorMessage: err.message });
     }
-    res.redirect("/");
+    res.redirect("/auth/login");
   });
 });
 

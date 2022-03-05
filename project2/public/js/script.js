@@ -1,7 +1,8 @@
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    console.log("project2 JS imported successfully!");
+    let today = new Date().toISOString().substr(0, 10);
+    document.querySelector("#datePicker").value = today;
   },
   false
 );
