@@ -5,17 +5,17 @@ const newsSchema = new Schema(
     group: {
         type: Number,
         min: 1,
-        max: 10
-    }  
+        max: 10,
+        required: true
+    },  
     headline: {
       type: String,
       required: true,
     },
     content: {
       type: String,
-      required: true,
     },
-    imgUrl:
+    imageUrl:
     {
         type: String,
     }
