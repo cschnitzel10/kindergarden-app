@@ -1,0 +1,48 @@
+<section style="border: 1px solid blue">
+    <h1>ADMIN HOMEPAGE</h1>
+</section>
+<section style="border: 1px solid red">
+<div>
+<h2>News</h2> 
+<div style="border: 1px solid yellow" > 
+    {{#each news}}
+
+<div style="border: 1px solid rgb(192, 255, 208)">
+    {{createdAt}}
+
+    <div>
+        <h5> Group: {{group}} </h5>   
+    </div>
+    <div>
+        <h5> {{headline}} </h5>
+        
+    </div>
+    <div>
+        <p> {{content}} </p>
+    </div>
+
+{{#if imageUrl}}
+    <div> 
+
+ <button>
+<a href="{{imageUrl}}" target="_blank" download> Download more Info</a>
+</button>
+    <div> 
+        {{/if}}
+
+</div>
+
+    {{/each}}
+
+</div>
+
+</div>
+
+
+</section>
+
+<section style="border: 1px solid purple">
+    <button>
+    <a href="/admin/create-news">ADD NEWS</a>
+    </button>
+</section>

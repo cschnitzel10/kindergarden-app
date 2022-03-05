@@ -34,8 +34,8 @@ app.use("/", index);
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
-const newsRoutes = require("./routes/news.routes");
-app.use("/admin", newsRoutes);
+const adminRoutes = require("./routes/admin.routes");
+app.use("/admin", adminRoutes);
 
 const testRoutes = require("./routes/test.routes");
 app.use("/tests", testRoutes);
