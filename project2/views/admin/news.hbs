@@ -1,0 +1,19 @@
+<form action="/auth/admin" method="POST">
+   <label> Headline:
+      <input type="text" name="headline">
+   </label>
+   <label> Content:
+      <input type="password" name="content">
+   </label>
+
+   <label> Upload file:
+       <input type="file" name="img">
+
+   </label>
+
+   <button type="submit">Submit</button>
+</form>
+
+{{#if errorMessage}}
+   {{errorMessage}}
+{{/if}}
