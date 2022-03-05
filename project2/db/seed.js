@@ -23,7 +23,7 @@ const seedDb = () => {
         diseaseName: "COVID",
         testName: "Blue Test",
         dateTaken: Date.now(),
-        result: true,
+        result: false,
         testTaker: childInDb.id,
       });
     })
