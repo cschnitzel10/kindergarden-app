@@ -1,20 +1,36 @@
-<h1>New Test Form</h1>
-<h1>User logged in: {{ user.username }}</h1>
+<html lang="en">
 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{appTitle}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://unpkg.com/flowbite@1.3.4/dist/datepicker.js"></script>
+  </head>
+
+  <body>
+ 
+
+{{!-- <h1>New Test Form</h1>
+<h1>User logged in: {{user.username}}</h1>
 
 <form action="/tests/new" method="post">
   <label for="diseaseName">Disease Name</label>
   <select name="diseaseName" id="diseaseName">
-      {{#each diseases}}
-    <option value="{{this}}">{{this}}</option>
+    {{#each diseases}}
+      <option value="{{this}}">{{this}}</option>
     {{/each}}
   </select>
+
   <label for="testTaker">Test Taker</label>
   <select name="testTaker" id="">
-{{#each user.children}}
-    <option value="{{id}}">{{this.name}}</option>
- {{/each}}
+    {{#each user.children}}
+      <option value="{{id}}">{{this.name}}</option>
+    {{/each}}
   </select>
+
   <label for="testName">Test Name</label>
   <input type="text" name="testName" id="" />
   <label for="dateTaken">Date of Test</label>
@@ -24,4 +40,138 @@
   <input type="radio" name="result" id="negative" value="false" />
   <label for="negative">Negative</label>
   <input type="submit" value="SUBMIT TEST" />
-</form>
+</form> --}}
+
+<section class="text-blueGray-700">
+  <div class="items-center px-5 py-6 lg:px-20">
+    <div class="flex flex-col w-full max-w-md mx-auto my-6 transition duration-500 ease-in-out transform bg-white rounded-lg md:mt-0">
+      <div class="mt-8">
+        <div class="mt-6">
+          <form action="/tests/new" method="POST" class="space-y-6" data-bitwarden-watching="1">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Submit New Test</h5>
+            <div class="space-y-1">
+              <label for="diseaseName" class="block text-sm font-medium text-neutral-600">Disease Name</label>
+
+              <select class="form-select appearance-none
+      block
+      w-full
+      px-5
+      py-3
+      text-center
+      font-normal
+      text-neutral-600
+      {{!-- bg-white bg-clip-padding bg-no-repeat --}}
+      border border-transparent
+      rounded
+      transition
+      ease-in-out
+      m-0
+      bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" name="diseaseName" id="diseaseName">
+                            <option disabled="disabled" selected="selected" class="text-center text-neutral-600"
+       selected> ------ Select Disease -------</option>
+                {{#each diseases}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="space-y-1">
+              <label class="block text-sm font-medium text-neutral-600" for="testTaker">Test Taker</label>
+              <select name="testTaker" class="form-select appearance-none
+      block
+      w-full
+      px-5
+      py-3
+      text-center
+      font-normal
+      text-neutral-600
+      {{!-- bg-white bg-clip-padding bg-no-repeat --}}
+      border border-transparent
+      rounded
+      transition
+      ease-in-out
+      m-0
+      bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" id="testTaker">
+              <option disabled="disabled" selected="selected" class="text-center text-neutral-600"
+       selected> ------ Select Child -------</option>
+                {{#each user.children}}
+                  <option value="{{id}}">{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="space-y-1">
+  <label class="block text-sm font-medium text-neutral-600" for="dateTaken">Date of Test</label>
+
+<div class="relative">
+<div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+<svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+</div>
+<input id="datePicker" datepicker="" type="text" name="dateTaken" class="bg-gray-50 text-gray-900 px-5 py-3 text-base text-neutral-600 placeholder-gray-300 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input" placeholder="Select date">
+</div>
+
+            </div>
+            <div class="space-y-1">
+              <label for="testName" class="block text-sm font-medium text-neutral-600">Test Name</label>
+              <div class="mt-1">
+                <input placeholder="Test Name" type="text" class="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" name="testName" id="" />
+              </div>
+            </div>
+            <div class="space-y-1">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <input type="radio" name="result" id="positive" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" value="true" checked />
+                  <label class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="positive">Positive   </label>
+                  <input type="radio" name="result" id="negative" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600" value="false" />
+                  <label class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="negative">Negative</label>
+                </div>
+              </div>
+            </div>
+            {{! <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input id="remember-me" name="remember-me" type="checkbox" placeholder="Your password" class="w-4 h-4 text-blue-600 border-gray-200 rounded focus:ring-blue-500" />
+                <label for="remember-me" class="block ml-2 text-sm text-neutral-600"> Remember me </label>
+              </div>
+              <div class="text-sm">
+                <a href="#" class="font-medium text-blue-600 hover:text-blue-500"> Forgot your password? </a>
+              </div>
+            </div> }}
+            <div>
+              <button type="submit" class="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Submit Test</button>
+            </div>
+          </form>
+          {{! <div class="relative my-4">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t border-gray-300"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+              <span class="px-2 text-neutral-600 bg-white"> Or continue with </span>
+            </div>
+          </div> }}
+          {{! <div>
+            <button type="submit" class="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+              <div class="flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-6 h-6" viewBox="0 0 48 48">
+                  <defs>
+                    <path id="a" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"></path>
+                  </defs>
+                  <clipPath id="b">
+                    <use xlink:href="#a" overflow="visible"></use>
+                  </clipPath>
+                  <path clip-path="url(#b)" fill="#FBBC05" d="M0 37V11l17 13z"></path>
+                  <path clip-path="url(#b)" fill="#EA4335" d="M0 11l17 13 7-6.1L48 14V0H0z"></path>
+                  <path clip-path="url(#b)" fill="#34A853" d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
+                  <path clip-path="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"></path>
+                </svg>
+                <span class="ml-4"> Log in with Google</span>
+              </div>
+            </button>
+          </div> }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <script src="/js/script.js"></script>
+  </body>
+
+</html>

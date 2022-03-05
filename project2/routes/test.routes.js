@@ -15,7 +15,7 @@ router.get("/new", (req, res, next) => {
   User.findOne({ id: req.session.user._id })
     .populate("children")
     .then((foundUser) => {
-      res.render("parent/newTest", { user: foundUser, diseases });
+      res.render("parent/newTest", { user: foundUser, diseases, layout: false });
     });
 });
 
