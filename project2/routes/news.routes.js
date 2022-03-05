@@ -5,14 +5,15 @@ const isAdmin = require("../middleware/isAdmin");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const fileUploader = require('../config/cloudinary.config');
 
-router.get("/createNews", isLoggedIn, (req, res) => {
+router.get("/create-news", isLoggedIn, (req, res) => {
     res.render("admin/create-news.hbs");
   });
 
-  router.post("/createNews", isAdmin, isLoggedIn, fileUploader.single('admin-file'), (req, res) => {
+  router.post("/create-news", isAdmin, isLoggedIn, fileUploader.single('admin-file'), (req, res) => {
     const { headline, content} = req.body;
+    const group = req.body;
     const imageUrl = req.file.path;
-    News.create ({headline, content, imageUrl})
+    News.create ({headline, content, group, imageUrl})
     .then(() => {
         res.redirect('/');
     }).catch(error => console.log(error))

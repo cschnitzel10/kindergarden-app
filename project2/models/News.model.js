@@ -2,6 +2,11 @@ const { Schema, model } = require("mongoose");
 
 const newsSchema = new Schema(
   {
+    group: {
+        type: Number,
+        min: 1,
+        max: 10
+    }  
     headline: {
       type: String,
       required: true,
