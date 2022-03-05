@@ -3,16 +3,19 @@
 </section>
 <section style="border: 1px solid red">
 <div>
-News 
-<div> 
+<h2>News</h2> 
+<div style="border: 1px solid yellow" > 
     {{#each news}}
-<div>
+
+<div style="border: 1px solid rgb(192, 255, 208)">
+    {{createdAt}}
 
     <div>
-        <h5> {{group}} </h5>
+        <h5> Group: {{group}} </h5>   
     </div>
     <div>
-        <h5> {{headline}}</h5>
+        <h5> {{headline}} </h5>
+        
     </div>
     <div>
         <p> {{content}} </p>
@@ -20,7 +23,10 @@ News
 
 {{#if imageUrl}}
     <div> 
-        <img src="{{imageUrl}}" alt="document">
+
+ <button>
+<a href="{{imageUrl}}" target="_blank" download> Download more Info</a>
+</button>
     <div> 
         {{/if}}
 
