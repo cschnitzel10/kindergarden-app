@@ -10,10 +10,9 @@ const newsSchema = new Schema(
       type: String,
       required: true,
     },
-    img:
+    imgUrl:
     {
-        data: Buffer,
-        contentType: String,
+        type: String,
     }
     },
   
