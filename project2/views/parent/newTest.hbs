@@ -1,0 +1,27 @@
+<h1>New Test Form</h1>
+<h1>User logged in: {{ user.username }}</h1>
+
+
+<form action="/tests/new" method="post">
+  <label for="diseaseName">Disease Name</label>
+  <select name="diseaseName" id="diseaseName">
+      {{#each diseases}}
+    <option value="{{this}}">{{this}}</option>
+    {{/each}}
+  </select>
+  <label for="testTaker">Test Taker</label>
+  <select name="testTaker" id="">
+{{#each user.children}}
+    <option value="{{id}}">{{this.name}}</option>
+ {{/each}}
+  </select>
+  <label for="testName">Test Name</label>
+  <input type="text" name="testName" id="" />
+  <label for="dateTaken">Date of Test</label>
+  <input type="date" name="dateTaken" id="datePicker" />
+  <input type="radio" name="result" id="positive" value="true" />
+  <label for="positive">Positive</label>
+  <input type="radio" name="result" id="negative" value="false" />
+  <label for="negative">Negative</label>
+  <input type="submit" value="SUBMIT TEST" />
+</form>

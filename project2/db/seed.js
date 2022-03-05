@@ -9,33 +9,36 @@ const seedDb = () => {
       return Child.deleteMany({});
     })
     .then(() => {
+      return Test.deleteMany({});
+    })
+    .then(() => {
       return Child.create({
         group: "7",
         name: "Frieda",
         test: [],
       });
     })
-    .then(childInDb => {
+    .then((childInDb) => {
       return Test.create({
-          diseaseName: "COVID",
-          testName: "Blue Test",
-          dateTaken: Date.now(),
-          result: true,
-          testTaker: childInDb.id
-      })
+        diseaseName: "COVID",
+        testName: "Blue Test",
+        dateTaken: Date.now(),
+        result: true,
+        testTaker: childInDb.id,
+      });
     })
     .then((testInDb) => {
-      return Child.findOneAndUpdate({ id: testInDb.testTaker }, { test: testInDb }, { new: true })
+      return Child.findOneAndUpdate({ id: testInDb.testTaker }, { $push: { test: testInDb }  }, { new: true });
     })
-    .then(foundChild => {
+    .then((foundChild) => {
       return User.create({
-        username: 'testUsername',
-        password: 'testPassword',
-        roles: 'Parent',
-        children: foundChild.id
-      })
+        username: "testUsername",
+        password: "testPassword",
+        roles: "Parent",
+        children: foundChild.id,
+      });
     })
-    .then((userInDb) => console.log(`========== 👥 created user in database called: ${userInDb} ==========`))
+    .then(() => console.log('DB SEEDED'))
     .catch((err) => console.log(err));
 };
 
