@@ -16,6 +16,11 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+
+hbs.registerHelper("prettifyDate", function(timestamp) {
+    return new Date(timestamp).toString('yyyy-MM-dd')
+});
+
 const app = express();
 seedDb();
 
