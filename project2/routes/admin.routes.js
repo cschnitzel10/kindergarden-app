@@ -23,7 +23,7 @@ router.get("/create-news", isLoggedIn, (req, res) => {
   
     });
 
-    // GET NEWS on /admin
+    // GET NEWS and TESTRESULTS on /admin
 
     router.get("/", (req, res) => {
       News.find()
@@ -31,6 +31,9 @@ router.get("/create-news", isLoggedIn, (req, res) => {
         console.log(newsFromDB)
           res.render('admin/index.hbs', {
               news: newsFromDB
+          });
+          Test.find().then((tests) => {
+            res.send(tests);
           });
       }).catch(error => console.error(error))
     });
