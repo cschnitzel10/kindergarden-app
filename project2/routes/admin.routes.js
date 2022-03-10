@@ -4,7 +4,7 @@ const News = require("../models/News.model");
 const isAdmin = require("../middleware/isAdmin");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const fileUploader = require("../config/cloudinary.config");
-const Test = require("../models/Test.model")
+const Test = require("../models/Test.model");
 //CREATE NEWS on /admin/create-news
 
 router.get("/create-news", isLoggedIn, (req, res) => {
@@ -26,6 +26,9 @@ router.post("/create-news", isLoggedIn, fileUploader.single("admin-file"), (req,
 // GET NEWS and TESTRESULTS on /admin
 
 router.get("/", (req, res) => {
+  // if(req.query) {
+  //   console.log(req.query)
+  // }
   let news;
  if (req.query) {
    console.log(req.query.group)
@@ -33,12 +36,15 @@ router.get("/", (req, res) => {
 
   News.find()
     .then((newsFromDB) => {
-      news = newsFromDB
-      return Test.find().populate('testTaker')
+      news = newsFromDB;
+      return Test.find().populate("testTaker");
     })
-    .then((testsFromDb) => {
+    .then((filt) => {
+      const testsFromDb = filt.filter((test) => test.testTaker.group == req.query.group);
       res.render("admin/index.hbs", {
-        news, testsFromDb
+        news,
+        testsFromDb,
+        user: req.session.currentUser,
       });
     })
     .catch((error) => console.error(error));

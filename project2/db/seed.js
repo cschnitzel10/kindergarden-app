@@ -79,8 +79,8 @@ const seedDb = () => {
     })
     .then((createdUser) => {
       return User.create({
-        username: "admin",
-        password: "admin",
+        username: "admin123",
+        password: "admin123",
         roles: "Admin",
       });
     })

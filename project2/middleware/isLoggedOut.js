@@ -1,8 +1,8 @@
 module.exports = (req, res, next) => {
   // if an already logged in user tries to access the login page it
   // redirects the user to the home page
-  if (req.session.user) {
-    return res.redirect('/auth/login');
+  if (req.session.currentUser) {
+    return res.redirect('/auth/logout');
   }
   next();
 };

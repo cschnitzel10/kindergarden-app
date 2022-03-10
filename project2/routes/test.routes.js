@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
 
 router.get("/new", (req, res, next) => {
   const diseases = Test.schema.path("diseaseName").enumValues;
-  User.findOne({ id: req.session.user._id })
+  User.findOne({ id: req.session.currentUser._id })
     .populate("children")
     .then((foundUser) => {
       res.render("parent/newTest", { user: foundUser, diseases, layout: false });
