@@ -9,7 +9,7 @@ function getDaysAgoData(data, daysAgo) {
   return data
     .filter((item) => item.date >= d)
     .map((item) => {
-      const newDate = item.date.toString().substring(0, 10);
+      const newDate = item.date.toString().substring(0, 15);
       item.date = newDate;
       return item;
     });
@@ -38,7 +38,8 @@ router.get("/parent", isLoggedIn, (req, res, next) => {
           historyOfTests.push({
             name: childName,
             group: childGroup,
-            test: test.diseaseName,
+            test: test.testName,
+            disease: test.diseaseName,
             date: test.dateTaken,
             result: test.result,
           });
