@@ -2,7 +2,8 @@
 <section>
 
     <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Latest News</h2> <br>
-    <div class="flex-row flex">
+    {{!-- <div class="flex-row flex"> --}}
+          <div class="grid grid-cols-3 gap-2 items-stretch">
         {{#each news}}
 
         <div
@@ -35,8 +36,8 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </a>
-                {{!-- <a style="border: 1px solid red" href="{{imageUrl}}" target="_blank" download> Download more Info</a> --}}
-            </button>
+                 {{!-- <a style="border: 1px solid red" href="{{imageUrl}}" target="_blank" download> Download more Info</a>  --}}
+            </button> 
 
 
 
@@ -46,6 +47,7 @@
  
 
         {{/each}}
+        
 
     </div>
 
