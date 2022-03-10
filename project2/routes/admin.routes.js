@@ -34,7 +34,7 @@ router.get("/", (req, res) => {
     })
     .then((testsFromDb) => {
       res.render("admin/index.hbs", {
-        news, testsFromDb
+        news, testsFromDb, user: req.session.currentUser
       });
     })
     .catch((error) => console.error(error));
