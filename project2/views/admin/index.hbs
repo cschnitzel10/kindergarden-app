@@ -9,7 +9,7 @@
         <div
             class="p-6 w-full mx-6 bg-white rounded-lg border border-gray-200 shadow-md">
 
-            <h6>{{prettifyDate createdAd}}</h6>
+            <h6>{{prettifyDate createdAt}}</h6>
 
             <div>
                 <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"> Group: {{group}}
@@ -50,6 +50,7 @@
         
 
     </div>
+
 
 
 </section>
@@ -133,6 +134,9 @@
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">History</h5>
                 <br>
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    
+
+
                     <div class="inline-block py-2 w-full sm:px-6 lg:px-8">
                         <div class="overflow-hidden shadow-md sm:rounded-lg">
                             <table class="w-full">
@@ -141,18 +145,21 @@
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
                                             Child
+                                    
                                         </th>
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
                                             Group
                                         </th>
                                         <th scope="col"
+
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
                                             Disease
                                         </th>
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
                                             Test
+
                                         </th>
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
@@ -166,26 +173,28 @@
                                 </thead>
                                 <tbody>
                                     {{#each testsFromDb}}
-                                    <tr class="bg-white border-b">
+
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <td
-                                            class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap ">
+                                            class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{this.testTaker.name}}
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                             {{this.testTaker.group}}
                                         </td>
-                                        <td
-                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
+                                         <td
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                             {{this.diseaseName}}
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                             {{this.testName}}
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
-                                            {{this.dateTaken}}
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            {{prettifyDate this.dateTaken}}
+
                                         </td>
                                         <td
                                             class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
@@ -203,6 +212,7 @@
                             </table>
                         </div>
                     </div>
+                    
                 </div>
             </div>
 

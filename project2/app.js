@@ -20,6 +20,11 @@ hbs.registerHelper("prettifyDate", function (timestamp) {
   return new Date(timestamp).toString("yyyy-MM-dd");
 });
 
+
+hbs.registerHelper("prettifyDate", function(timestamp) {
+    
+    return new Date(timestamp).toString().substring(0, 15) });
+
 hbs.registerHelper("admin", function (user) {
   if (!user) {
     return "";
@@ -32,6 +37,7 @@ hbs.registerHelper("admin", function (user) {
   } else {
     return "";
   }
+
 });
 
 const app = express();

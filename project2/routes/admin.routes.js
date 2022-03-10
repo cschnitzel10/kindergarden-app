@@ -30,6 +30,10 @@ router.get("/", (req, res) => {
   //   console.log(req.query)
   // }
   let news;
+ if (req.query) {
+   console.log(req.query.group)
+ }
+
   News.find()
     .then((newsFromDB) => {
       news = newsFromDB;
@@ -44,6 +48,23 @@ router.get("/", (req, res) => {
       });
     })
     .catch((error) => console.error(error));
+});
+
+router.get("/", (req, res) => {
+  const query = req.query
+  console.log(req.query)
+  
+  // News.find(query)
+  //   .then((newsFromDB) => {
+  //     news = newsFromDB
+  //     return Test.find().populate('testTaker')
+  //   })
+  //   .then((testsFromDb) => {
+  //     res.render("admin/index.hbs", {
+  //       news, testsFromDb
+  //     });
+  //   })
+  //   .catch((error) => console.error(error));
 });
 
 module.exports = router;
