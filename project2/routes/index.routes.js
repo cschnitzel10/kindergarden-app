@@ -38,7 +38,8 @@ router.get("/parent", isLoggedIn, (req, res, next) => {
           historyOfTests.push({
             name: childName,
             group: childGroup,
-            test: test.diseaseName,
+            test: test.testName,
+            disease: test.diseaseName,
             date: test.dateTaken,
             result: test.result,
           });
