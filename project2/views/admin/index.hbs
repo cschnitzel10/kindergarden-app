@@ -16,18 +16,18 @@
                 </h4>
             </div>
             <div>
-                <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{headline}} </h3>
+                <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"> {{headline}} </h3>
 
             </div>
             <div>
-                <p class="mb-3 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"> {{content}} </p>
+                <p class="mb-3 text-sm text-gray-500 whitespace-nowrap "> {{content}} </p>
             </div>
                    {{#if imageUrl}}
         <div>
 
             <button>
                 <a href="{{imageUrl}}" target="_blank" download
-                    class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
                      Download
                     <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg">
@@ -70,6 +70,10 @@
                 {{/each}}
               </select>
             </div> --}}
+            <br>
+            <br>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Filter Test History</h5>
+            <br>
 
 <form action="/" method="post">
     <div class="space-y-1">
@@ -77,7 +81,7 @@
 
         <div class="relative">
             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                <svg class="w-5 h-5 text-gray-500 " fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
                         d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
@@ -85,7 +89,7 @@
                 </svg>
             </div>
             <input id="datePicker" datepicker="" type="text" name="dateTaken"
-                class="bg-gray-50 text-gray-900 px-5 py-3 text-base text-neutral-600 placeholder-gray-300 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 datepicker-input"
+                class="bg-gray-50 text-gray-900 px-5 py-3 text-base text-neutral-600 placeholder-gray-300 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 datepicker-input"
                 placeholder="Select date">
         </div>
     </div>
@@ -117,73 +121,72 @@
               </select>
             </div>
 <br>
-    <input type="submit" id="submitBtn" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    <input type="submit" id="submitBtn" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300"
            value="Filter Test Results by Date">
 </form>
 
 
 
         <div>
-            <br>
             <div class="flex flex-col">
                 <br>
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">History</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">History</h5>
                 <br>
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block py-2 w-full sm:px-6 lg:px-8">
                         <div class="overflow-hidden shadow-md sm:rounded-lg">
                             <table class="w-full">
-                                <thead class="bg-gray-50 dark:bg-gray-700">
+                                <thead class="bg-gray-50">
                                     <tr>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
                                             Child
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
                                             Group
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
                                             Test
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
                                             Date
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
                                             Result
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {{#each historyOfTests}}
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <tr class="bg-white border-b">
                                         <td
-                                            class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap ">
                                             {{this.name}}
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
                                             {{this.group}}
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
                                             {{this.test}}
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
                                             {{this.date}}
                                         </td>
                                         <td
-                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
                                             {{#if this.result}}
                                             <span
-                                                class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">POSITIVE</span>
+                                                class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded ">POSITIVE</span>
                                             {{else}}
                                             <span
-                                                class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">NEGATIVE</span>
+                                                class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">NEGATIVE</span>
                                             {{/if}}
                                         </td>
                                     </tr>
