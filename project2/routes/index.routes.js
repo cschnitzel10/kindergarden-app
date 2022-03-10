@@ -9,7 +9,7 @@ function getDaysAgoData(data, daysAgo) {
   return data
     .filter((item) => item.date >= d)
     .map((item) => {
-      const newDate = item.date.toString().substring(0, 10);
+      const newDate = item.date.toString().substring(0, 15);
       item.date = newDate;
       return item;
     });
