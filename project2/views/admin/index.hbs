@@ -75,7 +75,7 @@
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Filter Test History</h5>
             <br>
 
-<form action="/" method="post">
+<form action="/admin" method="get">
     <div class="space-y-1">
         <label class="block text-sm font-medium text-neutral-600" for="dateTaken">Select Date of Test</label>
 
@@ -115,7 +115,7 @@
        selected> ------ Select Group -------</option> --}}
                 {{!-- {{#each diseases}} --}}
                   <option value="1">1</option>
-                  <option value="2">2</option>
+                  <option value="7">7</option>
                   {{!-- <option value="{{this}}">{{this}}</option> --}}
                 {{!-- {{/each}} --}}
               </select>
@@ -148,6 +148,10 @@
                                         </th>
                                         <th scope="col"
                                             class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
+                                            Disease
+                                        </th>
+                                        <th scope="col"
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
                                             Test
                                         </th>
                                         <th scope="col"
@@ -161,23 +165,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{#each historyOfTests}}
+                                    {{#each testsFromDb}}
                                     <tr class="bg-white border-b">
                                         <td
                                             class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap ">
-                                            {{this.name}}
+                                            {{this.testTaker.name}}
                                         </td>
                                         <td
                                             class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
-                                            {{this.group}}
+                                            {{this.testTaker.group}}
                                         </td>
                                         <td
                                             class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
-                                            {{this.test}}
+                                            {{this.diseaseName}}
                                         </td>
                                         <td
                                             class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
-                                            {{this.date}}
+                                            {{this.testName}}
+                                        </td>
+                                        <td
+                                            class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
+                                            {{this.dateTaken}}
                                         </td>
                                         <td
                                             class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">

@@ -119,6 +119,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         });
       }
       // If user is found based on the username, check if the in putted password matches the one saved in the database
+      console.log(password, user.password)
       if (password === user.password) {
         req.session.currentUser = user;
         if (user.roles == "Parent") {
