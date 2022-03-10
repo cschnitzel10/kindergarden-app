@@ -8,12 +8,11 @@ const testSchema = new Schema({
   testName: String,
   dateTaken: Date,
   result: Boolean,
-  testTaker: [
+  testTaker:
     {
       type: Schema.Types.ObjectId,
       ref: "Child",
     },
-  ],
 });
 
 module.exports = model("Test", testSchema);
