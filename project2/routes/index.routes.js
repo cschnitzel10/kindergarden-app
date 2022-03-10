@@ -22,14 +22,13 @@ router.get("/parent", isLoggedIn, (req, res, next) => {
   News.find()
     .then((newsFromDb) => {
       newsArticles = newsFromDb;
-      return User.findOne({ id: req.session.user._id })
+      return User.findOne({ id: req.session.currentUser._id })
       .populate({
         path: "children",
         populate: { path: "test" },
       });
     })
     .then((foundUser) => {
-      console.log('foundUser:', foundUser)
       foundUser.children.forEach((child) => {
         let childName = child.name;
         let childGroup = child.group;

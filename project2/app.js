@@ -5,8 +5,8 @@ require("dotenv/config");
 // ℹ️ Connects to the database
 require("./db");
 
-// Require seed file 
-const seedDb = require('./db/seed')
+// Require seed file
+const seedDb = require("./db/seed");
 
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
@@ -16,9 +16,22 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+hbs.registerHelper("prettifyDate", function (timestamp) {
+  return new Date(timestamp).toString("yyyy-MM-dd");
+});
 
-hbs.registerHelper("prettifyDate", function(timestamp) {
-    return new Date(timestamp).toString('yyyy-MM-dd')
+hbs.registerHelper("admin", function (user) {
+  if (!user) {
+    return "";
+  } else if (user.roles == "Admin") {
+    return `<button>
+        <a class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            href="/admin/create-news">
+            ADD NEWS </a>
+    </button>`;
+  } else {
+    return "";
+  }
 });
 
 const app = express();
