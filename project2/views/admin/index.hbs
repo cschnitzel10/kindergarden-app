@@ -52,7 +52,9 @@
     </div>
 
 
-
+{{#each testsFromDb}}
+{{this.testTaker.name}}
+{{/each}}
 
 </section>
 
@@ -91,10 +93,9 @@
                 placeholder="Select date">
         </div>
     </div>
-
     <div class="space-y-1">
               <br>
-              <label for="diseaseName" class="block text-sm font-medium text-neutral-600">Disease Name</label>
+              <label for="group" class="block text-sm font-medium text-neutral-600">Group</label>
 
               <select class="form-select appearance-none
       block
@@ -109,12 +110,14 @@
       transition
       ease-in-out
       m-0
-      bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" name="diseaseName" id="diseaseName">
-                            <option disabled="disabled" selected="selected" class="text-center text-neutral-600"
-       selected> ------ Select Disease -------</option>
-                {{#each diseases}}
-                  <option value="{{this}}">{{this}}</option>
-                {{/each}}
+      bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" name="group" id="group">
+                            {{!-- <option disabled="disabled" selected="selected" class="text-center text-neutral-600"
+       selected> ------ Select Group -------</option> --}}
+                {{!-- {{#each diseases}} --}}
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  {{!-- <option value="{{this}}">{{this}}</option> --}}
+                {{!-- {{/each}} --}}
               </select>
             </div>
 <br>
