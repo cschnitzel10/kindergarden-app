@@ -18,7 +18,8 @@ const hbs = require("hbs");
 
 
 hbs.registerHelper("prettifyDate", function(timestamp) {
-    return new Date(timestamp).toString('yyyy-MM-dd')
+    
+    return new Date(timestamp).toString().substring(0, 15)
 });
 
 const app = express();

@@ -1,3 +1,5 @@
+const { update } = require("../../models/User.model");
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -6,3 +8,4 @@ document.addEventListener(
   },
   false
 );
+
