@@ -1,7 +1,7 @@
 <section>
   <div class="flex flex-col">
     <br />
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">History</h5>
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">History - Last 7 Days</h5>
     <br />
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="inline-block py-2 w-full sm:px-6 lg:px-8">
@@ -48,10 +48,10 @@
                   {{this.test}}
                 </td>
                 <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
-                  {{this.date}}
+                  {{this.disease}}
                 </td>
                 <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
-                  {{this.disease}}
+                  {{this.date}}
                 </td>
                 <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
                   {{#if this.result}}
@@ -74,7 +74,7 @@
 <section class="w-full">
   <br />
   <br />
-  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Latest News</h5>
+  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Latest News - Group {{historyOfTests.0.group}}</h5>
   <br />
   {{! <div class="flex-row flex w-full"> }}
   <div class="grid grid-cols-3 gap-2 items-stretch">
@@ -82,6 +82,7 @@
     {{#each news}}
     <div class="relative flex-col w-full mx-2 my-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md">
       <div class="">
+        <h6>{{prettifyDate createdAt}}</h6>
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{this.headline}}</h5>
         <p class="mb-3 text-sm text-gray-500 whitespace-normal pb-16">{{this.content}}</p>
         {{#if this.imageUrl}}

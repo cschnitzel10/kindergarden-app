@@ -15,6 +15,10 @@ function getDaysAgoData(data, daysAgo) {
     });
 }
 
+router.get('/', (req, res, next) =>{
+  res.redirect('/auth/login')
+})
+
 /* GET home page */
 router.get("/parent", isLoggedIn, (req, res, next) => {
   let historyOfTests = [];
@@ -29,11 +33,14 @@ router.get("/parent", isLoggedIn, (req, res, next) => {
       });
     })
     .then((foundUser) => {
+      let filteredNewsArticles;
       foundUser.children.forEach((child) => {
+        filteredNewsArticles = newsArticles.filter(news => news.group == child.group);
         let childName = child.name;
         let childGroup = child.group;
+        console.log(child.test)
+        child.test.sort((a, b) => b.dateTaken - a.dateTaken);
         child.test.forEach((test) => {
-          // const parseDate = test.dateTaken.toString().substring(0, 10)
           historyOfTests.push({
             name: childName,
             group: childGroup,
@@ -45,7 +52,7 @@ router.get("/parent", isLoggedIn, (req, res, next) => {
         });
       });
       const filteredHistory = getDaysAgoData(historyOfTests, 7);
-      res.render("parent/index", { user: foundUser, historyOfTests: filteredHistory, news: newsArticles });
+      res.render("parent/index", { user: foundUser, historyOfTests: filteredHistory, news: filteredNewsArticles });
     });
 });
 

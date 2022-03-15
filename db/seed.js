@@ -39,7 +39,7 @@ const seedDb = () => {
         {
           diseaseName: "COVID",
           testName: "Blue Test",
-          dateTaken: Date.now(),
+          dateTaken: '2022-03-14T00:00:00.000+00:00',
           result: false,
           testTaker: childInDb.id,
         },
@@ -53,10 +53,10 @@ const seedDb = () => {
         {
           diseaseName: "COVID",
           testName: "Blue Test",
-          dateTaken: "2022-03-05T18:42:25.282Z",
+          dateTaken: Date.now(),
           result: false,
           testTaker: childInDb.id,
-        }
+        },
       ]);
     })
     .then((testsInDb) => {
