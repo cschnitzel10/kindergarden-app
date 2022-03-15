@@ -18,7 +18,7 @@ router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
 
-router.post("/signup", isLoggedOut, (req, res) => {
+router.post("/signup", (req, res) => {
   const { username, password } = req.body;
 
   if (!username) {
@@ -65,12 +65,11 @@ router.post("/signup", isLoggedOut, (req, res) => {
       })
       .then((user) => {
         // Bind the user to the session object
+        console.log(user)
         req.session.currentUser = user;
         if (user.roles == "Parent") {
-          console.log(user.roles, 'Parent')
           res.redirect("/parent");
         } else {
-          console.log(user.roles, 'ADMIN')
           res.redirect('/admin')
         }
       })
@@ -119,7 +118,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         });
       }
       // If user is found based on the username, check if the in putted password matches the one saved in the database
-      console.log(password, user.password)
+      // if (bcryptjs.compareSync(password, user.password) {
       if (password === user.password) {
         req.session.currentUser = user;
         if (user.roles == "Parent") {
