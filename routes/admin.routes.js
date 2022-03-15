@@ -9,20 +9,20 @@ const Test = require("../models/Test.model");
 
 router.get("/create-news", isLoggedIn, (req, res) => {
   res.render("admin/create-news.hbs");
-});
+}); 
 
-router.post("/create-news", isLoggedIn, fileUploader.single("admin-file"), (req, res) => {
-  const { headline, content, group } = req.body;
-  const imageUrl = req.file?.path;
-  console.log(imageUrl);
-  News.create({ headline, content, group, imageUrl })
-    .then((newNews) => {
-      console.log(newNews);
-      res.redirect("/admin");
-    })
-    .catch((error) => console.log(error));
-});
-
+router.post("/create-news", isLoggedIn, fileUploader.single("admin-file"), (req, res) => { 
+  const { headline, content, group } = req.body;  
+  const imageUrl = req.file?.path;   
+  console.log(imageUrl); 
+  News.create({ headline, content, group, imageUrl }) 
+    .then((newNews) => { 
+      console.log(newNews); 
+      res.redirect("/admin"); 
+    }) 
+    .catch((error) => console.log(error)); 
+}); 
+ 
 // GET NEWS and TESTRESULTS on /admin
 
 router.get("/", (req, res) => {
