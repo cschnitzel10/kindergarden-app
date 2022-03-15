@@ -32,8 +32,10 @@ hbs.registerHelper("admin", function (user) {
     return `<button>
         <a class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             href="/admin/create-news">
-            ADD NEWS </a>
-    </button>`;
+            ADD NEWS </a>            
+    </button>
+                <a href="/auth/logout" class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap underline">Logout</a>
+`;
   } else {
     return "";
   }
@@ -49,7 +51,7 @@ require("./config")(app);
 const capitalized = require("./utils/capitalized");
 const projectName = "project2";
 
-app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
+app.locals.appTitle = 'Kindergarden App';
 
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
