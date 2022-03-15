@@ -38,7 +38,6 @@ router.get("/parent", isLoggedIn, (req, res, next) => {
         filteredNewsArticles = newsArticles.filter(news => news.group == child.group);
         let childName = child.name;
         let childGroup = child.group;
-        console.log(child.test)
         child.test.sort((a, b) => b.dateTaken - a.dateTaken);
         child.test.forEach((test) => {
           historyOfTests.push({
