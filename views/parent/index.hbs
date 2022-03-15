@@ -82,6 +82,7 @@
     {{#each news}}
     <div class="relative flex-col w-full mx-2 my-2 p-6 bg-white rounded-lg border border-gray-200 shadow-md">
       <div class="">
+        <h6>{{prettifyDate createdAt}}</h6>
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{this.headline}}</h5>
         <p class="mb-3 text-sm text-gray-500 whitespace-normal pb-16">{{this.content}}</p>
         {{#if this.imageUrl}}
