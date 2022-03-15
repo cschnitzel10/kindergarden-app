@@ -26,25 +26,26 @@ router.post("/create-news", isLoggedIn, fileUploader.single("admin-file"), (req,
 // GET NEWS and TESTRESULTS on /admin
 
 router.get("/", (req, res) => {
-  // if(req.query) {
-  //   console.log(req.query)
-  // }
-  let news;
- if (req.query) {
-  //  console.log(req.query.group)
- }
 
-  News.find()
-    .then((newsFromDB) => {
-      news = newsFromDB;
-      return Test.find().populate("testTaker");
+  let news;
+ 
+ if (req.query) {
+
+ } 
+
+  News.find() 
+    .then((newsFromDB) => { 
+      news = newsFromDB; 
+      newsFromDB.sort((a, b) => b.createdAt - a.createdAt); 
+      return Test.find().populate("testTaker"); 
     })
-    .then((filt) => {
-      const testsFromDb = filt.filter((test) => test.testTaker.group == req.query.group);
-      res.render("admin/index.hbs", {
-        news,
-        testsFromDb,
-        user: req.session.currentUser,
+    .then((filt) => { 
+      const testsFromDb = filt.filter((test) => test.testTaker.group == req.query.group); 
+      testsFromDb.sort((a, b) => b.dateTaken - a.dateTaken); 
+      res.render("admin/index.hbs", { 
+        news, 
+        testsFromDb, 
+        user: req.session.currentUser, 
       });
     })
     .catch((error) => console.error(error));
@@ -52,21 +53,9 @@ router.get("/", (req, res) => {
 
 router.get("/", (req, res) => {
   const query = req.query
-  // console.log(req.query)
-  
-  // News.find(query)
-  //   .then((newsFromDB) => {
-  //     news = newsFromDB
-  //     return Test.find().populate('testTaker')
-  //   })
-  //   .then((testsFromDb) => {
-  //     res.render("admin/index.hbs", {
-  //       news, testsFromDb
-  //     });
-  //   })
-  //   .catch((error) => console.error(error));
+
 });
 
 module.exports = router;
 
-// ADD isAdmin after we have the Userbase
+
