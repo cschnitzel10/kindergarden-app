@@ -31,7 +31,7 @@ router.get("/", (req, res) => {
   // }
   let news;
  if (req.query) {
-   console.log(req.query.group)
+  //  console.log(req.query.group)
  }
 
   News.find()
@@ -52,7 +52,7 @@ router.get("/", (req, res) => {
 
 router.get("/", (req, res) => {
   const query = req.query
-  console.log(req.query)
+  // console.log(req.query)
   
   // News.find(query)
   //   .then((newsFromDB) => {
