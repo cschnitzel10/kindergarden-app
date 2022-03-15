@@ -3,7 +3,7 @@
   <br />
   <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Latest News</h5>
   <br />
-  {{! <div class="flex-row flex w-full"> }}
+
   <div class="grid grid-cols-3 gap-2 items-stretch">
 
     {{#each news}}
@@ -28,102 +28,16 @@
     {{/each}}
 </section>
 
-{{!-- 
-<section>
-
-    <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Latest News</h2> <br>
-   
-          <div class="grid grid-cols-3 gap-2 items-stretch">
-        {{#each news}}
-
-        <div
-            class="p-6 w-full mx-6 bg-white rounded-lg border border-gray-200 shadow-md">
-
-            <h6>{{prettifyDate createdAt}}</h6>
-
-            <div>
-                <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"> Group: {{group}}
-                </h4>
-            </div>
-            <div>
-                <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"> {{headline}} </h3>
-
-            </div>
-            <div>
-                <p class="mb-3 text-sm text-gray-500 whitespace-nowrap "> {{content}} </p>
-            </div>
-                   {{#if imageUrl}}
-        <div>
-
-            <button>
-                <a href="{{imageUrl}}" target="_blank" download
-                    class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
-                     Download
-                    <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </a>
-                 
-            </button> 
 
 
 
-        </div>
-        {{/if}}
-        </div>
- 
-
-        {{/each}}
-        
-
-    </div>
-
-
-
-</section> --}}
-
-{{!-- <section style="margin: 15px 5px 50px 0px">
-    <button>
-        <a class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            href="/admin/create-news">
-            ADD NEWS </a>
-    </button>
-</section> --}}
-
-{{!-- <section>
- <option disabled="disabled" selected="selected" class="text-center text-neutral-600"
-       selected> ------ Select Group -------</option>
-                {{#each group}}
-                  <option value="{{number}}">{{this.number}}</option>
-                {{/each}}
-              </select>
-            </div> --}}
             <br>
             <br>
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Test History</h5>
             <br>
 
 <form action="/admin" method="get">
-    {{!-- <div class="space-y-1">
-        <label class="block text-sm font-medium text-neutral-600" for="dateTaken">Select Date of Test</label>
 
-        <div class="relative">
-            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <svg class="w-5 h-5 text-gray-500 " fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </div>
-            <input id="datePicker" datepicker="" type="text" name="dateTaken"
-                class="bg-gray-50 text-gray-900 px-5 py-3 text-base text-neutral-600 placeholder-gray-300 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 datepicker-input"
-                placeholder="Select date">
-        </div>
-    </div> --}}
     <div class="space-y-1">
               <br>
               <label for="group" class="block text-sm font-medium text-neutral-600">Group</label>
@@ -142,9 +56,7 @@
       ease-in-out
       m-0
       bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" name="group" id="group">
-                            {{!-- <option disabled="disabled" selected="selected" class="text-center text-neutral-600"
-       selected> ------ Select Group -------</option> --}}
-                {{!-- {{#each diseases}} --}}
+
                 <option disabled="disabled" selected="selected" class="text-center text-neutral-600"
        selected> ------ Select Group -------</option>
                   <option value="1">1</option>
@@ -154,8 +66,7 @@
                   <option value="5">5</option>
                   <option value="6">6</option>
                   <option value="7">7</option>
-                  {{!-- <option value="{{this}}">{{this}}</option> --}}
-                {{!-- {{/each}} --}}
+
               </select>
             </div>
 <br>
