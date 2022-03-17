@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Child = require("../models/Child.model");
 const Test = require("../models/Test.model");
 const User = require("../models/User.model");
+const sendEmail = require("../utils/sendEmail");
 
 /* GET TESTS */
 router.get("/", (req, res, next) => {
@@ -26,6 +27,13 @@ router.post("/new", (req, res, next) => {
   if (!diseaseName || !testName || !dateTaken || !result || !testTaker) {
     return res.render("parent/newTest", { errorMessage: "Please complete all" });
   }
+  if(result == 'true') {
+    if(diseaseName == 'Covid') {
+      sendEmail(testTaker, diseaseName, dateTaken);
+    } else {
+      sendEmail(testTaker, testName, dateTaken);
+    }
+  }
   Test.create({
     diseaseName,
     testName,
@@ -34,9 +42,7 @@ router.post("/new", (req, res, next) => {
     testTaker
   }).then(testInDb => {
     return Child.findOneAndUpdate({ id: testInDb.testTaker }, { $push: { test: testInDb }  }, { new: true });
-
   }).then(updatedChild => {
-      console.log(updatedChild)
       res.redirect('/parent')
   }).catch(err => console.log(err))
 });
