@@ -94,7 +94,7 @@
               <option disabled="disabled" selected="selected" class="text-center text-neutral-600"
        selected> ------ Select Child -------</option>
                 {{#each user.children}}
-                  <option value="{{id}}">{{this.name}}</option>
+                  <option data-name="{{this.name}}" value="{{id}}">{{this.name}}</option>
                 {{/each}}
               </select>
             </div>

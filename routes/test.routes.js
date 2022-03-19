@@ -22,18 +22,24 @@ router.get("/new", (req, res, next) => {
 
 /* POST NEW TEST */
 router.post("/new", (req, res, next) => {
-  const { diseaseName, testName, dateTaken, result, testTaker } = req.body;
+  let { diseaseName, testName, dateTaken, result, testTaker } = req.body;
   console.log(diseaseName, testName, dateTaken, result, testTaker);
   if (!diseaseName || !testName || !dateTaken || !result || !testTaker) {
     return res.render("parent/newTest", { errorMessage: "Please complete all" });
   }
   if(result == 'true') {
-    if(diseaseName == 'Covid') {
-      sendEmail(testTaker, diseaseName, dateTaken);
-    } else {
-      sendEmail(testTaker, testName, dateTaken);
-    }
+    Child.findById(testTaker)
+    .then(child => {
+      console.log(child)
+      if(diseaseName == 'COVID') {
+        sendEmail(child.name, diseaseName, dateTaken);
+      } else {
+        sendEmail(child.name, testName, dateTaken);
+      }
+    })
+    .catch(err => console.log(err))
   }
+  console.log('CREATING TEST')
   Test.create({
     diseaseName,
     testName,
