@@ -123,7 +123,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         req.session.currentUser = user;
         if (user.roles == "Parent") {
           console.log(user.roles, 'Parent')
-          res.redirect("/parent");
+          res.redirect("/admin");
         } else {
           console.log(user.roles, 'ADMIN')
           res.redirect('/admin')
